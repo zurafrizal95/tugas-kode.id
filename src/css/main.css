@@ -22,6 +22,10 @@
   padding: 0 150px;
 }
 
+#navbar .logo {
+  z-index: 999;
+}
+
 #navbar .logo h3 {
   color: var(--red);
   font-family: 'poppins';
@@ -62,6 +66,75 @@
 
 #navbar .menu ul li a:hover {
   color: var(--red);
+}
+
+#navbar .hamburger_menu {
+  width: 30px;
+  height: 20px;
+  position: relative;
+  cursor: pointer;
+  display: none;
+}
+
+#navbar .hamburger_menu span {
+  display: block;
+  width: 30px;
+  height: 2px;
+  background: var(--white);
+  transition: all 0.3s;
+}
+
+#navbar .hamburger_menu span:not(:nth-child(3)) {
+  margin-bottom: 7px;
+}
+
+#navbar .hamburger_menu.open span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+#navbar .hamburger_menu.open span:nth-child(2) {
+  transform: translateX(9px);
+  opacity: 0;
+}
+
+#navbar .hamburger_menu.open span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+#navbar .menu_mobile {
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 50vh;
+  background: var(--first-color);
+  transform: translateY(-120%);
+  transition: all 0.5s;
+}
+
+#navbar .menu_mobile.active {
+  transform: translateY(0);
+}
+
+#navbar .menu_mobile ul {
+  padding-left: 0;
+  padding-top: 80px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+#navbar .menu_mobile ul li:not(:last-child) {
+  margin-bottom: 40px;
+}
+
+#navbar .menu_mobile ul li a {
+  color: var(--white);
+  font-family: 'poppins';
+  font-size: 16px;
+  text-decoration: none;
 }
 /* navbar end */
 
@@ -750,6 +823,13 @@ textarea:focus {
   #navbar .menu_items {
     margin: 0;
   }
+
+  #navbar .hamburger_menu {
+    display: inline-block;
+    z-index: 999;
+  }
+  /* navbar end */
+
   /* header */
   #header .header_content {
     padding: 0 20px;

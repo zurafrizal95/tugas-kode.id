@@ -1,3 +1,30 @@
+// navbar mobile
+const hamburger = document.querySelector('#navbar .hamburger_menu');
+const menuMobile = document.querySelector('#navbar .menu_mobile');
+let menuOpen = false;
+
+hamburger.addEventListener('click', () => {
+  if (!menuOpen) {
+    hamburger.classList.add('open');
+    menuMobile.classList.add('active');
+    menuOpen = true;
+  } else {
+    hamburger.classList.remove('open');
+    menuMobile.classList.remove('active');
+    menuOpen = false;
+  }
+});
+
+const menuLink = document.querySelectorAll('#navbar .menu_mobile ul li a');
+
+menuLink.forEach((e) => {
+  e.addEventListener('click', () => {
+    menuMobile.classList.toggle('active');
+    hamburger.classList.toggle('open');
+  });
+});
+// navbar mobile end
+
 // contact
 const nameInput = document.querySelector('form #name');
 const email = document.querySelector('form #email');
